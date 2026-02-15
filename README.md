@@ -68,3 +68,45 @@ ________________________________________
 •	Keep tone professional and confident
 •	Ensure content is web-ready
 •	Do NOT include placeholder text in the final output
+---
+
+## 🔥 Firebase Setup & Deployment
+
+### Prerequisites
+- A Google account and Firebase project ([Create one here](https://console.firebase.google.com))
+- Node.js installed locally
+
+### 1. Get Your Firebase Config
+1. Go to your [Firebase Console](https://console.firebase.google.com)
+2. Select your project → **Project Settings** (gear icon)
+3. Copy your Web app config object (contains `apiKey`, `projectId`, etc.)
+
+### 2. Configure Locally
+Copy `public/firebase-config.example.js` to `public/firebase-config.js` and fill in your values:
+```js
+export const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "SENDER_ID",
+  appId: "APP_ID"
+};
+```
+
+**⚠️ Important:** Add `firebase-config.js` to `.gitignore` to keep credentials private.
+
+### 3. Install Firebase CLI & Deploy
+```bash
+npm install -g firebase-tools
+firebase login
+firebase deploy --only hosting
+```
+
+Your portfolio will be live at `https://YOUR_PROJECT_ID.web.app`
+
+### File Structure
+- `public/firebase-init.js` — Firebase SDK loader
+- `public/script.module.js` — Main scripts + auto-init
+- `public/firebase-config.example.js` — Config template (copy & customize)
+- `public/firebase-config.js` — Your actual config (git-ignored)
