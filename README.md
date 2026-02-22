@@ -1,1 +1,1 @@
-https://github.com/KeithJames93/my-portfolio
+https://keithjames93.github.io/my-portfolio/
